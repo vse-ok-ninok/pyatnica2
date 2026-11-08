@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Реставрационная мастерская «Пятница» — реставрация темперных икон, Москва</title>
+<meta name="description" content="Реставрационная мастерская Петрухиной Параскевы в Москве. Профессиональная реставрация темперных икон: сохранение, восстановление, консервация. Портфолио работ до и после.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1a1a1c;
+    --bg-2:#202024;
+    --bg-3:#26262b;
+    --line:#33333a;
+    --text:#f2f0ec;
+    --muted:#a8a6a0;
+    --accent:#c9a96a;
+    --accent-soft:#e3c98f;
+    --radius:14px;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.15;letter-spacing:.2px}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .section{padding:96px 0}
+  .section-label{
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:16px;font-weight:500;
+  }
+  .section-title{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:20px}
+  .section-lead{color:var(--muted);max-width:620px;font-size:1.02rem}
+
+  /* Header */
+  .header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(26,26,28,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .logo{display:flex;flex-direction:column;line-height:1.1}
+  .logo-mark{
+    font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;
+    letter-spacing:.16em;color:var(--text);
+  }
+  .logo-mark span{color:var(--accent)}
+  .logo-sub{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .nav{display:flex;gap:32px}
+  .nav a{font-size:.9rem;color:var(--muted);transition:color .25s ease;position:relative}
+  .nav a:hover{color:var(--text)}
+  .nav a::after{
+    content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;
+    background:var(--accent);transition:width .3s ease;
+  }
+  .nav a:hover::after{width:100%}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.85rem;font-weight:500;color:var(--accent);
+    border:1px solid var(--accent);border-radius:100px;
+    padding:9px 20px;transition:all .25s ease;
+  }
+  .nav-cta:hover{background:var(--accent);color:#1a1a1c}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:.3s}
+
+  /* Hero */
+  .hero{
+    padding:120px 0 110px;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse 60% 50% at 70% 20%,rgba(201,169,106,.08),transparent 70%),
+               linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.03) 1px,transparent 0);
+    background-size:32px 32px;pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:820px}
+  .hero h1{
+    font-size:clamp(2.6rem,7vw,5.2rem);
+    margin-bottom:24px;font-weight:600;
+  }
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero-sub{
+    color:var(--muted);font-size:clamp(1rem,2vw,1.2rem);max-width:560px;
+    margin-bottom:40px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Inter',sans-serif;font-size:.95rem;font-weight:500;
+    padding:15px 32px;border-radius:100px;cursor:pointer;border:none;
+    transition:all .3s ease;
+  }
+  .btn-primary{background:var(--accent);color:#1a1a1c}
+  .btn-primary:hover{background:var(--accent-soft);transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(201,169,106,.45)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* Services + Why */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .service-card{
+    background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:40px;transition:border-color .3s ease;
+  }
+  .service-card:hover{border-color:rgba(201,169,106,.4)}
+  .service-card h3{font-size:1.6rem;margin-bottom:14px}
+  .service-card p{color:var(--muted);font-size:.98rem}
+  .service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .tag{
+    font-size:.75rem;letter-spacing:.04em;color:var(--accent);
+    border:1px solid rgba(201,169,106,.3);border-radius:100px;
+    padding:5px 14px;
+  }
+  .why-list{list-style:none;display:flex;flex-direction:column;gap:22px;margin-top:8px}
+  .why-list li{display:flex;gap:16px;align-items:flex-start}
+  .why-num{
+    font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;
+    color:var(--accent);line-height:1;min-width:36px;
+  }
+  .why-list h4{font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;margin-bottom:4px}
+  .why-list p{color:var(--muted);font-size:.92rem}
+
+  .about-block{margin-top:80px}
+  .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
+  .about-portrait{
+    aspect-ratio:3/4;border-radius:var(--radius);
+    background:linear-gradient(145deg,var(--bg-3),var(--bg-2));
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .about-portrait::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 40%,rgba(201,169,106,.12),transparent 65%);
+  }
+  .placeholder-label{
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);text-align:center;position:relative;z-index:1;
+  }
+  .about-text p{color:var(--muted);margin-bottom:18px}
+  .about-sign{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:1.3rem;color:var(--accent);margin-top:24px;
+  }
+
+  /* Cases */
+  .cases{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cases-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:28px;margin-top:48px;
+  }
+  .case-card{
+    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;transition:transform .35s ease,border-color .35s ease;
+  }
+  .case-card:hover{transform:translateY(-4px);border-color:rgba(201,169,106,.45)}
+  .case-images{display:grid;grid-template-columns:1fr 1fr}
+  .case-img{
+    aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .case-img.before{
+    background:linear-gradient(160deg,#2a2523,#1e1c1a);
+    border-right:1px solid var(--line);
+  }
+  .case-img.after{
+    background:linear-gradient(160deg,#2e281f,#242019);
+  }
+  .case-img::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 35%,rgba(201,169,106,.14),transparent 70%);
+    opacity:0;transition:opacity .4s ease;
+  }
+  .case-img.after::before{opacity:1}
+  .case-img span{
+    font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);position:relative;z-index:1;
+    writing-mode:horizontal-tb;
+  }
+  .case-body{padding:22px 24px 26px}
+  .case-body h3{font-size:1.25rem;margin-bottom:6px}
+  .case-body p{color:var(--muted);font-size:.86rem}
+
+  /* Price calculator */
+  .price-section{
+    padding:96px 0;
+    background:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(201,169,106,.06),transparent 70%);
+    border-bottom:1px solid var(--line);
+  }
+  .price-wrap{
+    max-width:760px;margin:0 auto;
+    background:var(--bg-2);border:1px solid var(--line);border-radius:18px;
+    padding:48px;
+  }
+  .price-wrap .section-title{text-align:center;margin-bottom:8px}
+  .price-wrap .section-lead{text-align:center;margin:0 auto 36px}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .price-grid .field{margin-bottom:0}
+  .price-field{margin-bottom:22px}
+  .price-field label{
+    display:block;font-size:.82rem;letter-spacing:.06em;
+    color:var(--muted);margin-bottom:8px;font-weight:500;
+  }
+  .price-field select,.price-field input[type=number]{
+    width:100%;padding:14px 16px;
+    background:var(--bg);border:1px solid var(--line);border-radius:10px;
+    color:var(--text);font-family:'Inter',sans-serif;font-size:.95rem;
+    transition:border-color .25s ease,box-shadow .25s ease;
+  }
+  .price-field select:focus,.price-field input[type=number]:focus{
+    outline:none;border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(201,169,106,.12);
+  }
+  .checkbox-row{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 16px;background:var(--bg);border:1px solid var(--line);
+    border-radius:10px;cursor:pointer;user-select:none;
+  }
+  .checkbox-row input[type=checkbox]{
+    width:18px;height:18px;accent-color:var(--accent);cursor:pointer;
+  }
+  .checkbox-row span{font-size:.95rem;color:var(--text)}
+  .price-result{
+    margin-top:28px;padding:24px;
+    background:rgba(201,169,106,.08);border:1px solid rgba(201,169,106,.3);
+    border-radius:12px;text-align:center;
+  }
+  .price-result .price-label{
+    font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:10px;
+  }
+  .price-result .price-value{
+    font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;
+    color:var(--accent-soft);line-height:1.1;
+  }
+  .price-result .price-note{
+    font-size:.78rem;color:var(--muted);margin-top:10px;
+  }
+
+  /* Contacts / socials */
+  .contact-section{
+    padding:96px 0;
+    background:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(201,169,106,.06),transparent 70%);
+  }
+  .contact-wrap{
+    max-width:760px;margin:0 auto;text-align:center;
+  }
+  .contact-wrap .section-title{margin-bottom:16px}
+  .contact-wrap .section-lead{
+    margin:0 auto 40px;text-align:center;font-size:1.05rem;
+  }
+  .social-links{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    margin-bottom:32px;
+  }
+  .social-link{
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    padding:28px 20px;
+    background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);
+    transition:all .3s ease;
+  }
+  .social-link:hover{
+    border-color:rgba(201,169,106,.5);
+    transform:translateY(-4px);
+    box-shadow:0 16px 32px -16px rgba(201,169,106,.3);
+  }
+  .social-icon{
+    width:48px;height:48px;border-radius:50%;
+    border:1px solid rgba(201,169,106,.35);
+    display:flex;align-items:center;justify-content:center;
+    font-size:.95rem;font-weight:600;letter-spacing:.04em;
+    color:var(--accent);transition:all .3s ease;
+  }
+  .social-link:hover .social-icon{
+    background:var(--accent);color:#1a1a1c;border-color:var(--accent);
+  }
+  .social-name{
+    font-size:.95rem;font-weight:500;color:var(--text);
+  }
+  .social-handle{
+    font-size:.8rem;color:var(--muted);
+  }
+  .contact-hint{
+    font-size:.95rem;color:var(--muted);max-width:560px;margin:0 auto;
+    padding-top:24px;border-top:1px solid var(--line);
+  }
+  .contact-hint strong{color:var(--accent-soft);font-weight:500}
+
+  /* Footer */
+  .footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px}
+  .footer-grid{
+    display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;
+    padding-bottom:48px;border-bottom:1px solid var(--line);
+  }
+  .footer h4{
+    font-family:'Inter',sans-serif;font-size:.78rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:20px;
+  }
+  .footer p,.footer a{color:var(--muted);font-size:.92rem;line-height:1.9}
+  .footer a:hover{color:var(--accent)}
+  .footer-contacts a{display:block}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:28px;flex-wrap:wrap;gap:12px;
+    font-size:.8rem;color:var(--muted);
+  }
+  .footer-socials{display:flex;gap:14px}
+  .footer-socials a{
+    width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.72rem;letter-spacing:.04em;transition:all .25s ease;
+  }
+  .footer-socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+  /* Back to top */
+  .to-top{
+    position:fixed;right:24px;bottom:24px;z-index:40;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--bg-2);border:1px solid var(--line);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);
+    transition:all .3s ease;font-size:1.1rem;
+  }
+  .to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .to-top:hover{background:var(--accent);color:#1a1a1c;border-color:var(--accent)}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+  /* Responsive */
+  @media (max-width:1200px){
+    .container{padding:0 28px}
+  }
+  @media (max-width:768px){
+    .section{padding:64px 0}
+    .grid-2,.about-grid{grid-template-columns:1fr;gap:36px}
+    .form-row,.price-grid{grid-template-columns:1fr}
+    .form-wrap,.price-wrap{padding:32px 24px}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .footer-grid .footer-brand{grid-column:1/-1}
+    .nav{display:none}
+    .nav-cta{display:none}
+    .burger{display:block}
+    .nav.open{
+      display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;
+      background:var(--bg-2);border-bottom:1px solid var(--line);
+      padding:24px;gap:20px;animation:fadeUp .3s ease;
+    }
+    .hero{padding:80px 0 70px}
+    .social-links{grid-template-columns:1fr;gap:14px}
+    .social-link{flex-direction:row;justify-content:flex-start;text-align:left;padding:20px}
+    .social-link > div:last-child{display:flex;flex-direction:column}
+  }
+  @media (max-width:480px){
+    .container{padding:0 20px}
+    .section{padding:52px 0}
+    .hero{padding:64px 0 56px}
+    .btn{padding:13px 26px;font-size:.9rem}
+    .service-card{padding:28px}
+    .footer-grid{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;align-items:flex-start}
+    .to-top{right:16px;bottom:16px;width:42px;height:42px}
+    .price-result .price-value{font-size:1.9rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="Пятница — реставрация икон, на главную">
+      <span class="logo-mark">П<span>Я</span>ТНИЦА</span>
+      <span class="logo-sub">реставрация икон</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#about">О мастере</a>
+      <a href="#cases">Работы</a>
+      <a href="#price">Прайс-лист</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Написать мастеру</a>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-inner">
+      <p class="section-label">Реставрация темперных икон · Москва</p>
+      <h1 id="hero-title">Искусство <em>возрождать</em></h1>
+      <p class="hero-sub">Реставрационная мастерская Петрухиной Параскевы. Бережное восстановление и консервация икон с сохранением исторической подлинности.</p>
+      <div class="hero-actions">
+        <a href="#cases" class="btn btn-primary">Посмотреть мои работы</a>
+        <a href="#contact" class="btn btn-ghost">Написать мастеру</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES + WHY -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="grid-2 reveal">
+        <div>
+          <p class="section-label">Услуга</p>
+          <h2 class="section-title" id="services-title">Реставрация темперных икон</h2>
+          <div class="service-card">
+            <h3>Возвращение к жизни</h3>
+            <p>Работа с иконами, написанными темперой на деревянной основе. Включает укрепление красочного слоя, восполнение утрат, удаление поздних записей и загрязнений, а также консервацию с сохранением всех исторических свидетельств.</p>
+            <div class="service-tags" aria-label="Виды работ">
+              <span class="tag">Укрепление левкаса</span>
+              <span class="tag">Расчистка</span>
+              <span class="tag">Восполнение утрат</span>
+              <span class="tag">Консервация</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">Почему я</p>
+          <h2 class="section-title">Подход, которому доверяют</h2>
+          <ul class="why-list">
+            <li>
+              <span class="why-num">01</span>
+              <div>
+                <h4>Профессиональная школа</h4>
+                <p>Специальное образование и практика в реставрации темперной живописи.</p>
+              </div>
+            </li>
+            <li>
+              <span class="why-num">02</span>
+              <div>
+                <h4>Бережность к памятнику</h4>
+                <p>Каждое вмешательство обосновано и обратимо. Историческая основа сохраняется.</p>
+              </div>
+            </li>
+            <li>
+              <span class="why-num">03</span>
+              <div>
+                <h4>Прозрачный процесс</h4>
+                <p>Фотофиксация на каждом этапе, согласование объёма работ до начала.</p>
+              </div>
+            </li>
+            <li>
+              <span class="why-num">04</span>
+              <div>
+                <h4>Личное участие</h4>
+                <p>Все работы выполняются мастером лично, без передачи подрядчикам.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="about-block reveal" id="about">
+        <div class="about-grid">
+          <div class="about-portrait" role="img" aria-label="Портрет реставратора Петрухиной Параскевы — изображение-заглушка">
+            <span class="placeholder-label">Фото мастера<br>заглушка</span>
+          </div>
+          <div class="about-text">
+            <p class="section-label">О мастере</p>
+            <h2 class="section-title">Петрухина Параскева</h2>
+            <p>Реставратор темперной живописи, работаю с иконами более десяти лет. За это время через мастерскую прошли десятки памятников — от домашних образов до храмовых икон.</p>
+            <p>Считаю главной задачей не «сделать как новое», а сохранить подлинность и вернуть иконе возможность жить дальше. Поэтому предпочитаю консервацию вмешательству, а историю памятника — внешнему блеску.</p>
+            <p class="about-sign">— Параскева Петрухина</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="cases section" id="cases" aria-labelledby="cases-title">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Портфолио</p>
+        <h2 class="section-title" id="cases-title">Работы: до и после</h2>
+        <p class="section-lead">Шесть примеров реставрации. Фотографии приведены в качестве заглушек — реальные снимки работ будут размещены позже.</p>
+      </div>
+      <div class="cases-grid" id="cases-grid">
+        <!-- cards injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE CALCULATOR -->
+  <section class="price-section" id="price" aria-labelledby="price-title">
+    <div class="container">
+      <div class="price-wrap reveal">
+        <p class="section-label" style="text-align:center">Прайс-лист</p>
+        <h2 class="section-title" id="price-title">Узнайте предварительную стоимость</h2>
+        <p class="section-lead">Выберите параметры иконы — калькулятор покажет ориентировочную стоимость работ. Точная цена определяется после осмотра.</p>
+
+        <div class="price-field">
+          <label for="price-complexity">Сложность иконы</label>
+          <select id="price-complexity">
+            <option value="simple">Простая — небольшие утраты, лёгкие загрязнения</option>
+            <option value="medium" selected>Средняя — множественные утраты, поздние записи</option>
+            <option value="complex">Сложная — сильные разрушения, серьёзные вмешательства</option>
+          </select>
+        </div>
+
+        <div class="price-grid">
+          <div class="price-field">
+            <label for="price-width">Ширина, см</label>
+            <input type="number" id="price-width" min="1" max="400" value="20">
+          </div>
+          <div class="price-field">
+            <label for="price-height">Высота, см</label>
+            <input type="number" id="price-height" min="1" max="400" value="30">
+          </div>
+        </div>
+
+        <div class="price-field" style="margin-top:22px">
+          <label class="checkbox-row" for="price-oklad">
+            <input type="checkbox" id="price-oklad">
+            <span>Есть металлический оклад (требуется аккуратная удалить)</span>
+          </label>
+        </div>
+
+        <div class="price-result">
+          <div class="price-label">Примерная стоимость</div>
+          <div class="price-value" id="price-value">—</div>
+          <div class="price-note" id="price-note">Итоговая цена зависит от состояния памятника и определяется после осмотра.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS / SOCIALS -->
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-wrap reveal">
+        <p class="section-label">Связаться</p>
+        <h2 class="section-title" id="contact-title">Пишите мне в любую соцсеть</h2>
+        <p class="section-lead">Пришлите фотографии иконы и краткое описание — обсудим план работ и конечную стоимость. Отвечаю лично.</p>
+
+        <div class="social-links">
+          <a href="https://t.me/example" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
+            <span class="social-icon" aria-hidden="true">TG</span>
+            <div>
+              <div class="social-name">Telegram</div>
+              <div class="social-handle">@example</div>
+            </div>
+          </a>
+          <a href="https://vk.com/example" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Написать во ВКонтакте">
+            <span class="social-icon" aria-hidden="true">VK</span>
+            <div>
+              <div class="social-name">ВКонтакте</div>
+              <div class="social-handle">vk.com/example</div>
+            </div>
+          </a>
+          <a href="https://wa.me/70000000000" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+            <span class="social-icon" aria-hidden="true">WA</span>
+            <div>
+              <div class="social-name">WhatsApp</div>
+              <div class="social-handle">+7 (000) 000-00-00</div>
+            </div>
+          </a>
+        </div>
+
+        <p class="contact-hint">
+          <strong>Пришлите фото иконы</strong> — с разных сторон, общий вид и крупно повреждённые участки.
+          Этого достаточно, чтобы я сориентировала по плану работ и предварительной стоимости.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-mark">П<span>Я</span>ТНИЦА</span>
+        <p style="margin-top:14px;max-width:280px">Реставрационная мастерская Петрухиной Параскевы. Реставрация и консервация темперных икон в Москве.</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <div class="footer-contacts">
+          <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+          <a href="mailto:info@example.ru">info@example.ru</a>
+          <p>Москва, ул. Примерная, д. 1</p>
+        </div>
+      </div>
+      <div>
+        <h4>Соцсети</h4>
+        <div class="footer-socials">
+          <a href="https://t.me/example" target="_blank" rel="noopener noreferrer" aria-label="Телеграм">TG</a>
+          <a href="https://vk.com/example" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">VK</a>
+          <a href="https://wa.me/70000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Реставрационная мастерская «Пятница». Все права защищены.</span>
+      <span>Петрухина Параскева · Москва</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" aria-label="Наверх">↑</button>
+
+<script>
+  // Cases data — 6 карточек
+  const cases = [
+    {title:'Икона «Спас Нерукотворный»', desc:'XIX век · восстановление красочного слоя и лика', before:'До', after:'После'},
+    {title:'Икона Божией Матери «Владимирская»', desc:'XVIII век · расчистка поздних записей', before:'До', after:'После'},
+    {title:'Икона «Святитель Николай Чудотворец»', desc:'XIX век · укрепление левкаса и восполнение утрат', before:'До', after:'После'},
+    {title:'Икона «Преображение Господне»', desc:'XX век · консервация и удаление загрязнений', before:'До', after:'После'},
+    {title:'Икона «Покров Пресвятой Богородицы»', desc:'XIX век · комплексная реставрация', before:'До', after:'После'},
+    {title:'Икона Божией Матери «Казанская»', desc:'XVIII век · раскрытие из-под оклада и укрепление основы', before:'До', after:'После'}
+  ];
+  const grid = document.getElementById('cases-grid');
+  cases.forEach((c,i)=>{
+    const card = document.createElement('article');
+    card.className = 'case-card reveal';
+    card.setAttribute('aria-labelledby','case-'+i);
+    card.innerHTML = `
+      <div class="case-images">
+        <div class="case-img before" role="img" aria-label="${c.title} — состояние до реставрации, изображение-заглушка">
+          <span>${c.before}</span>
+        </div>
+        <div class="case-img after" role="img" aria-label="${c.title} — состояние после реставрации, изображение-заглушка">
+          <span>${c.after}</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3 id="case-${i}">${c.title}</h3>
+        <p>${c.desc}</p>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Burger
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  burger.addEventListener('click',()=>{
+    const open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    nav.classList.remove('open');burger.setAttribute('aria-expanded','false');
+  }));
+
+  // To top
+  const toTop = document.getElementById('to-top');
+  window.addEventListener('scroll',()=>{
+    toTop.classList.toggle('show',window.scrollY>500);
+  },{passive:true});
+  toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  // ===== PRICE CALCULATOR =====
+  const priceComplexity = document.getElementById('price-complexity');
+  const priceWidth = document.getElementById('price-width');
+  const priceHeight = document.getElementById('price-height');
+  const priceOklad = document.getElementById('price-oklad');
+  const priceValueEl = document.getElementById('price-value');
+
+  const RATES = { simple: 40.0, medium: 55.0, complex: 70.0 };
+  const OKLAD_SURCHARGE = 5000;
+
+  function formatRub(n){ return n.toLocaleString('ru-RU') + ' ₽'; }
+
+  function calculatePrice(){
+    const complexity = priceComplexity.value;
+    const width = parseFloat(priceWidth.value) || 0;
+    const height = parseFloat(priceHeight.value) || 0;
+    const hasOklad = priceOklad.checked;
+
+    if(width <= 0 || height <= 0){
+      priceValueEl.textContent = '—';
+      return;
+    }
+
+    let price = width * height * RATES[complexity];
+    if(hasOklad) price += OKLAD_SURCHARGE;
+    price = Math.round(price / 100) * 100;
+
+    priceValueEl.textContent = 'от ' + formatRub(price);
+  }
+
+  [priceComplexity, priceWidth, priceHeight, priceOklad].forEach(el=>{
+    el.addEventListener('input', calculatePrice);
+    el.addEventListener('change', calculatePrice);
+  });
+  calculatePrice();
+</script>
+</body>
+</html>
